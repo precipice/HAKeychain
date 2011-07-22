@@ -1,0 +1,268 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		49F7E08913D9F57F006700CC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F7E08813D9F57F006700CC /* Cocoa.framework */; };
+		49F7E09313D9F57F006700CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49F7E09113D9F57F006700CC /* InfoPlist.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		49F7E08513D9F57F006700CC /* HAKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HAKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		49F7E08813D9F57F006700CC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		49F7E08B13D9F57F006700CC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		49F7E08C13D9F57F006700CC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		49F7E08D13D9F57F006700CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		49F7E09013D9F57F006700CC /* HAKeychain-Info.plist */ = {isa = PBXFileReference; path = "HAKeychain-Info.plist"; sourceTree = "<group>"; };
+		49F7E09213D9F57F006700CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		49F7E09413D9F57F006700CC /* HAKeychain-Prefix.pch */ = {isa = PBXFileReference; path = "HAKeychain-Prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		49F7E08113D9F57F006700CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49F7E08913D9F57F006700CC /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		49F7E07913D9F57F006700CC = {
+			isa = PBXGroup;
+			children = (
+				49F7E08E13D9F57F006700CC /* HAKeychain */,
+				49F7E08713D9F57F006700CC /* Frameworks */,
+				49F7E08613D9F57F006700CC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		49F7E08613D9F57F006700CC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				49F7E08513D9F57F006700CC /* HAKeychain.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		49F7E08713D9F57F006700CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49F7E08813D9F57F006700CC /* Cocoa.framework */,
+				49F7E08A13D9F57F006700CC /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		49F7E08A13D9F57F006700CC /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49F7E08B13D9F57F006700CC /* AppKit.framework */,
+				49F7E08C13D9F57F006700CC /* CoreData.framework */,
+				49F7E08D13D9F57F006700CC /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		49F7E08E13D9F57F006700CC /* HAKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				49F7E08F13D9F57F006700CC /* Supporting Files */,
+			);
+			path = HAKeychain;
+			sourceTree = "<group>";
+		};
+		49F7E08F13D9F57F006700CC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				49F7E09013D9F57F006700CC /* HAKeychain-Info.plist */,
+				49F7E09113D9F57F006700CC /* InfoPlist.strings */,
+				49F7E09413D9F57F006700CC /* HAKeychain-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		49F7E08213D9F57F006700CC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		49F7E08413D9F57F006700CC /* HAKeychain */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49F7E09713D9F57F006700CC /* Build configuration list for PBXNativeTarget "HAKeychain" */;
+			buildPhases = (
+				49F7E08013D9F57F006700CC /* Sources */,
+				49F7E08113D9F57F006700CC /* Frameworks */,
+				49F7E08213D9F57F006700CC /* Headers */,
+				49F7E08313D9F57F006700CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HAKeychain;
+			productName = HAKeychain;
+			productReference = 49F7E08513D9F57F006700CC /* HAKeychain.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		49F7E07B13D9F57F006700CC /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 49F7E07E13D9F57F006700CC /* Build configuration list for PBXProject "HAKeychain" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 49F7E07913D9F57F006700CC;
+			productRefGroup = 49F7E08613D9F57F006700CC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				49F7E08413D9F57F006700CC /* HAKeychain */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		49F7E08313D9F57F006700CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49F7E09313D9F57F006700CC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		49F7E08013D9F57F006700CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		49F7E09113D9F57F006700CC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49F7E09213D9F57F006700CC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		49F7E09513D9F57F006700CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		49F7E09613D9F57F006700CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		49F7E09813D9F57F006700CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HAKeychain/HAKeychain-Prefix.pch";
+				INFOPLIST_FILE = "HAKeychain/HAKeychain-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		49F7E09913D9F57F006700CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HAKeychain/HAKeychain-Prefix.pch";
+				INFOPLIST_FILE = "HAKeychain/HAKeychain-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		49F7E07E13D9F57F006700CC /* Build configuration list for PBXProject "HAKeychain" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49F7E09513D9F57F006700CC /* Debug */,
+				49F7E09613D9F57F006700CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49F7E09713D9F57F006700CC /* Build configuration list for PBXNativeTarget "HAKeychain" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49F7E09813D9F57F006700CC /* Debug */,
+				49F7E09913D9F57F006700CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 49F7E07B13D9F57F006700CC /* Project object */;
+}
