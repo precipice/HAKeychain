@@ -9,7 +9,26 @@
 /* Begin PBXBuildFile section */
 		49F7E08913D9F57F006700CC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F7E08813D9F57F006700CC /* Cocoa.framework */; };
 		49F7E09313D9F57F006700CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49F7E09113D9F57F006700CC /* InfoPlist.strings */; };
+		49F7E0A013D9F5C1006700CC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F7E08813D9F57F006700CC /* Cocoa.framework */; };
+		49F7E0A613D9F5C1006700CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49F7E0A413D9F5C1006700CC /* InfoPlist.strings */; };
+		49F7E0BA13D9F6B1006700CC /* GHUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F7E0B913D9F6B1006700CC /* GHUnit.framework */; };
+		49F7E0BC13D9F713006700CC /* GHUnit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49F7E0B913D9F6B1006700CC /* GHUnit.framework */; };
+		49F7E0BE13D9F9BF006700CC /* GHUnitTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F7E0BD13D9F9BF006700CC /* GHUnitTestMain.m */; };
+		49F7E0C113DA07C2006700CC /* KeychainTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F7E0C013DA07C2006700CC /* KeychainTest.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		49F7E0BB13D9F6F8006700CC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				49F7E0BC13D9F713006700CC /* GHUnit.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		49F7E08513D9F57F006700CC /* HAKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HAKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -17,9 +36,16 @@
 		49F7E08B13D9F57F006700CC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		49F7E08C13D9F57F006700CC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		49F7E08D13D9F57F006700CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		49F7E09013D9F57F006700CC /* HAKeychain-Info.plist */ = {isa = PBXFileReference; path = "HAKeychain-Info.plist"; sourceTree = "<group>"; };
+		49F7E09013D9F57F006700CC /* HAKeychain-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HAKeychain-Info.plist"; sourceTree = "<group>"; };
 		49F7E09213D9F57F006700CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		49F7E09413D9F57F006700CC /* HAKeychain-Prefix.pch */ = {isa = PBXFileReference; path = "HAKeychain-Prefix.pch"; sourceTree = "<group>"; };
+		49F7E09413D9F57F006700CC /* HAKeychain-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HAKeychain-Prefix.pch"; sourceTree = "<group>"; };
+		49F7E09E13D9F5C1006700CC /* Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tests.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		49F7E0A313D9F5C1006700CC /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
+		49F7E0A513D9F5C1006700CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		49F7E0A713D9F5C1006700CC /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		49F7E0B913D9F6B1006700CC /* GHUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GHUnit.framework; sourceTree = "<group>"; };
+		49F7E0BD13D9F9BF006700CC /* GHUnitTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUnitTestMain.m; sourceTree = "<group>"; };
+		49F7E0C013DA07C2006700CC /* KeychainTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +57,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		49F7E09B13D9F5C1006700CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49F7E0A013D9F5C1006700CC /* Cocoa.framework in Frameworks */,
+				49F7E0BA13D9F6B1006700CC /* GHUnit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -38,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				49F7E08E13D9F57F006700CC /* HAKeychain */,
+				49F7E0A113D9F5C1006700CC /* Tests */,
 				49F7E08713D9F57F006700CC /* Frameworks */,
 				49F7E08613D9F57F006700CC /* Products */,
 			);
@@ -47,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				49F7E08513D9F57F006700CC /* HAKeychain.framework */,
+				49F7E09E13D9F5C1006700CC /* Tests.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,6 +91,7 @@
 		49F7E08713D9F57F006700CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				49F7E0B913D9F6B1006700CC /* GHUnit.framework */,
 				49F7E08813D9F57F006700CC /* Cocoa.framework */,
 				49F7E08A13D9F57F006700CC /* Other Frameworks */,
 			);
@@ -84,6 +122,26 @@
 				49F7E09013D9F57F006700CC /* HAKeychain-Info.plist */,
 				49F7E09113D9F57F006700CC /* InfoPlist.strings */,
 				49F7E09413D9F57F006700CC /* HAKeychain-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		49F7E0A113D9F5C1006700CC /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				49F7E0C013DA07C2006700CC /* KeychainTest.m */,
+				49F7E0A213D9F5C1006700CC /* Supporting Files */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		49F7E0A213D9F5C1006700CC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				49F7E0BD13D9F9BF006700CC /* GHUnitTestMain.m */,
+				49F7E0A313D9F5C1006700CC /* Tests-Info.plist */,
+				49F7E0A413D9F5C1006700CC /* InfoPlist.strings */,
+				49F7E0A713D9F5C1006700CC /* Tests-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -119,6 +177,24 @@
 			productReference = 49F7E08513D9F57F006700CC /* HAKeychain.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		49F7E09D13D9F5C1006700CC /* Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49F7E0B313D9F5C1006700CC /* Build configuration list for PBXNativeTarget "Tests" */;
+			buildPhases = (
+				49F7E09A13D9F5C1006700CC /* Sources */,
+				49F7E0BB13D9F6F8006700CC /* CopyFiles */,
+				49F7E09B13D9F5C1006700CC /* Frameworks */,
+				49F7E09C13D9F5C1006700CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tests;
+			productName = Tests;
+			productReference = 49F7E09E13D9F5C1006700CC /* Tests.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -137,6 +213,7 @@
 			projectRoot = "";
 			targets = (
 				49F7E08413D9F57F006700CC /* HAKeychain */,
+				49F7E09D13D9F5C1006700CC /* Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -150,6 +227,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		49F7E09C13D9F5C1006700CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49F7E0A613D9F5C1006700CC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -160,6 +245,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		49F7E09A13D9F5C1006700CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49F7E0BE13D9F9BF006700CC /* GHUnitTestMain.m in Sources */,
+				49F7E0C113DA07C2006700CC /* KeychainTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -167,6 +261,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				49F7E09213D9F57F006700CC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		49F7E0A413D9F5C1006700CC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49F7E0A513D9F5C1006700CC /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -213,6 +315,10 @@
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -232,6 +338,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -239,6 +349,46 @@
 				INFOPLIST_FILE = "HAKeychain/HAKeychain-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		49F7E0B413D9F5C1006700CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
+				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		49F7E0B513D9F5C1006700CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
+				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
@@ -259,6 +409,14 @@
 			buildConfigurations = (
 				49F7E09813D9F57F006700CC /* Debug */,
 				49F7E09913D9F57F006700CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		49F7E0B313D9F5C1006700CC /* Build configuration list for PBXNativeTarget "Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49F7E0B413D9F5C1006700CC /* Debug */,
+				49F7E0B513D9F5C1006700CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
