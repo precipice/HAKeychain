@@ -8,16 +8,17 @@
 
 #import <GHUnit/GHUnit.h>
 #import <Security/Security.h>
+#import "HAKeychain.h"
 
-@interface KeychainTest : GHTestCase { 
+@interface HAKeychainTest : GHTestCase { 
     SecKeychainRef testKeychain;
 }
 @end
 
-@implementation KeychainTest
+@implementation HAKeychainTest
 
 - (void)setUpClass {
-    // Create a test keychain so we can add and delete passwords with glee.
+    GHTestLog(@"Creating private keychain for test suite to use.");
     const char *pathName = "/tmp/HAKeychain-Test.keychain";
     void *password = "hakeychaintest";
     UInt32 passwordLength = (UInt32) strlen(password);
@@ -34,7 +35,7 @@
 }
 
 - (void)tearDownClass {
-    // Clean up the test keychain.
+    GHTestLog(@"Deleting test suite keychain.");
     OSStatus err = SecKeychainDelete(testKeychain);
     CFRelease(testKeychain);
     GHAssertNoErr(err, @"Failed to delete test keychain");    
@@ -48,20 +49,14 @@
     // Run after each test method
 }  
 
-- (void)testFoo {       
-    NSString *a = @"foo";
-    GHTestLog(@"I can log to the GHUnit test console: %@", a);
-    
-    // Assert a is not NULL, with no custom error description
-    GHAssertNotNULL(a, nil);
-    
-    // Assert equal objects, add custom error description
-    NSString *b = @"bar";
-    GHAssertEqualObjects(a, b, @"A custom error message. a should be equal to: %@.", b);
-}
-
-- (void)testBar {
-    // Another test
+- (void)testPasswordCreate {
+    NSError *error = nil;
+    BOOL success = [HAKeychain createPassword:@"testpass"
+                                   forService:@"testservice"
+                                      account:@"testaccount"
+                                     keychain:&testKeychain
+                                        error:&error];
+    GHAssertTrue(success, @"Password creation failed");    
 }
 
 @end
