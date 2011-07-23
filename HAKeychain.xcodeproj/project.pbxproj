@@ -15,6 +15,7 @@
 		49F7E0BC13D9F713006700CC /* GHUnit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49F7E0B913D9F6B1006700CC /* GHUnit.framework */; };
 		49F7E0BE13D9F9BF006700CC /* GHUnitTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F7E0BD13D9F9BF006700CC /* GHUnitTestMain.m */; };
 		49F7E0C113DA07C2006700CC /* KeychainTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F7E0C013DA07C2006700CC /* KeychainTest.m */; };
+		49FCE21713DA178500B155CD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FCE21613DA178500B155CD /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,6 +47,7 @@
 		49F7E0B913D9F6B1006700CC /* GHUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GHUnit.framework; sourceTree = "<group>"; };
 		49F7E0BD13D9F9BF006700CC /* GHUnitTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUnitTestMain.m; sourceTree = "<group>"; };
 		49F7E0C013DA07C2006700CC /* KeychainTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainTest.m; sourceTree = "<group>"; };
+		49FCE21613DA178500B155CD /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49FCE21713DA178500B155CD /* Security.framework in Frameworks */,
 				49F7E0A013D9F5C1006700CC /* Cocoa.framework in Frameworks */,
 				49F7E0BA13D9F6B1006700CC /* GHUnit.framework in Frameworks */,
 			);
@@ -91,6 +94,7 @@
 		49F7E08713D9F57F006700CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				49FCE21613DA178500B155CD /* Security.framework */,
 				49F7E0B913D9F6B1006700CC /* GHUnit.framework */,
 				49F7E08813D9F57F006700CC /* Cocoa.framework */,
 				49F7E08A13D9F57F006700CC /* Other Frameworks */,
@@ -411,6 +415,7 @@
 				49F7E09913D9F57F006700CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49F7E0B313D9F5C1006700CC /* Build configuration list for PBXNativeTarget "Tests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +424,7 @@
 				49F7E0B513D9F5C1006700CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

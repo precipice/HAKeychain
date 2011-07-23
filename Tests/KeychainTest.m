@@ -3,28 +3,41 @@
 //  HAKeychain
 //
 //  Created by Marc Hedlund on 7/22/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 Hack Arts, LLC. All rights reserved.
 //
 
 #import <GHUnit/GHUnit.h>
+#import <Security/Security.h>
 
-@interface ExampleTest : GHTestCase { }
+@interface KeychainTest : GHTestCase { 
+    SecKeychainRef testKeychain;
+}
 @end
 
-@implementation ExampleTest
-
-- (BOOL)shouldRunOnMainThread {
-    // By default NO, but if you have a UI test or test dependent on running on the main thread return YES.
-    // Also an async test that calls back on the main thread, you'll probably want to return YES.
-    return NO;
-}
+@implementation KeychainTest
 
 - (void)setUpClass {
-    // Run at start of all tests in the class
+    // Create a test keychain so we can add and delete passwords with glee.
+    const char *pathName = "/tmp/HAKeychain-Test.keychain";
+    void *password = "hakeychaintest";
+    UInt32 passwordLength = (UInt32) strlen(password);
+    Boolean promptUser = NO;
+    
+    
+    OSStatus err = SecKeychainCreate(pathName,
+                                     passwordLength,
+                                     password,
+                                     promptUser,
+                                     NULL,
+                                     &testKeychain);
+    GHAssertNoErr(err, @"Failed to create test keychain");
 }
 
 - (void)tearDownClass {
-    // Run at end of all tests in the class
+    // Clean up the test keychain.
+    OSStatus err = SecKeychainDelete(testKeychain);
+    CFRelease(testKeychain);
+    GHAssertNoErr(err, @"Failed to delete test keychain");    
 }
 
 - (void)setUp {
