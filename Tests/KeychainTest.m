@@ -54,9 +54,10 @@
     BOOL success = [HAKeychain createPassword:@"testpass"
                                    forService:@"testservice"
                                       account:@"testaccount"
-                                     keychain:&testKeychain
+                                     keychain:testKeychain
                                         error:&error];
-    GHAssertTrue(success, @"Password creation failed");    
+    GHAssertTrue(success, @"Password creation failed");
+    GHAssertNil(error, @"Should have no error, but there was one.");
 }
 
 @end

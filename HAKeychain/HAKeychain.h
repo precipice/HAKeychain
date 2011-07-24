@@ -17,7 +17,7 @@
 + (BOOL)createPassword:(NSString *)password
             forService:(NSString *)service
                account:(NSString *)account
-              keychain:(SecKeychainRef *)keychain
+              keychain:(SecKeychainRef)keychain
                  error:(NSError **)error;
 
 @end
