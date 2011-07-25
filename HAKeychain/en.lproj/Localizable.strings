@@ -1,0 +1,147 @@
+
+"A default keychain could not be found." = "A default keychain could not be found.";
+
+
+"A keychain with the same name already exists." = "A keychain with the same name already exists.";
+
+
+"A required component (certificate module) could not be loaded. You may need to restart your computer." = "A required component (certificate module) could not be loaded. You may need to restart your computer.";
+
+
+"A required component (data storage module) could not be loaded. You may need to restart your computer." = "A required component (data storage module) could not be loaded. You may need to restart your computer.";
+
+
+"A required component (policy module) could not be loaded. You may need to restart your computer." = "A required component (policy module) could not be loaded. You may need to restart your computer.";
+
+
+"An attempt was made to import multiple private keys." = "An attempt was made to import multiple private keys.";
+
+
+"Failed to allocate memory." = "Failed to allocate memory.";
+
+
+"Import/Export keychain format unsupported." = "Import/Export keychain format unsupported.";
+
+
+"Invalid attempt to change the owner of this keychain item." = "Invalid attempt to change the owner of this keychain item.";
+
+
+"Keychain function or operation not implemented." = "Keychain function or operation not implemented.";
+
+
+"Keychain material must be wrapped for export." = "Keychain material must be wrapped for export.";
+
+
+"MAC verification failed during PKCS12 Import." = "MAC verification failed during PKCS12 Import.";
+
+
+"No error." = "No error.";
+
+
+"No keychain is available. You may need to restart your computer." = "No keychain is available. You may need to restart your computer.";
+
+
+"No keychain trust results are available." = "No keychain trust results are available.";
+
+
+"No keychain Trust Settings were found." = "No keychain Trust Settings were found.";
+
+
+"One or more certificates required to validate this certificate cannot be found." = "One or more certificates required to validate this certificate cannot be found.";
+
+
+"Passphrase is required for keychain import/export." = "Passphrase is required for keychain import/export.";
+
+
+"That password already exists in the keychain." = "That password already exists in the keychain.";
+
+
+"The contents of this keychain item cannot be modified." = "The contents of this keychain item cannot be modified.";
+
+
+"The contents of this keychain item cannot be retrieved." = "The contents of this keychain item cannot be retrieved.";
+
+
+"The item could not be found in the keychain." = "The item could not be found in the keychain.";
+
+
+"The item does not appear to be a valid keychain item." = "The item does not appear to be a valid keychain item.";
+
+
+"The keychain access control list is not in standard (simple) form." = "The keychain access control list is not in standard (simple) form.";
+
+
+"The keychain attribute could not be modified." = "The keychain attribute could not be modified.";
+
+
+"The keychain attribute does not exist." = "The keychain attribute does not exist.";
+
+
+"The keychain callback function is already installed." = "The keychain callback function is already installed.";
+
+
+"The keychain callback function is not valid." = "The keychain callback function is not valid.";
+
+
+"The keychain cannot be modified." = "The keychain cannot be modified.";
+
+
+"The keychain could not be found." = "The keychain could not be found.";
+
+
+"The keychain is not a valid keychain file." = "The keychain is not a valid keychain file.";
+
+
+"The keychain item has no access control." = "The keychain item has no access control.";
+
+
+"The keychain item is no longer valid. It may have been deleted from the keychain." = "The keychain item is no longer valid. It may have been deleted from the keychain.";
+
+
+"The keychain password reference was invalid." = "The keychain password reference was invalid.";
+
+
+"The keychain policy cannot be found." = "The keychain policy cannot be found.";
+
+
+"The keychain preferences domain is not valid." = "The keychain preferences domain is not valid.";
+
+
+"The keychain trust setting is invalid." = "The keychain trust setting is invalid.";
+
+
+"The keychain Trust Settings Record was corrupted." = "The keychain Trust Settings Record was corrupted.";
+
+
+"The keychain username or password you entered is not correct." = "The keychain username or password you entered is not correct.";
+
+
+"The password, account, or service name was invalid." = "The password, account, or service name was invalid.";
+
+
+"There is not enough memory available to use the keychain item." = "There is not enough memory available to use the keychain item.";
+
+
+"This item specifies a key size which is too large." = "This item specifies a key size which is too large.";
+
+
+"This keychain item contains information which is too large or in a format that cannot be displayed." = "This keychain item contains information which is too large or in a format that cannot be displayed.";
+
+
+"This keychain was created by a different version of the system software and cannot be opened." = "This keychain was created by a different version of the system software and cannot be opened.";
+
+
+"Unable to decode the provided keychain data." = "Unable to decode the provided keychain data.";
+
+
+"Unable to search the current keychain." = "Unable to search the current keychain.";
+
+
+"Unknown format in keychain import." = "Unknown format in keychain import.";
+
+
+"User interaction is not allowed with that keychain." = "User interaction is not allowed with that keychain.";
+
+
+"User interaction is required for that keychain, but is currently not allowed." = "User interaction is required for that keychain, but is currently not allowed.";
+

@@ -143,4 +143,34 @@
     GHAssertFalse(success, @"Password creation succeeded but should have failed.");
 }
 
+
+- (void)testLocalizedDescriptionOnDuplicate {
+    NSString *password = @"localdescpass";
+    NSString *service  = @"localdescservice";
+    NSString *account  = @"localdescaccount";
+    
+    // First create should succeed.
+    NSError *error = nil;
+    BOOL success = [HAKeychain createPassword:password
+                                   forService:service
+                                      account:account
+                                     keychain:testKeychain
+                                        error:&error];
+    GHAssertTrue(success, @"First password creation in duplicate failed.");
+    
+    // Second create should fail.
+    BOOL success2 = [HAKeychain createPassword:password
+                                    forService:service
+                                       account:account
+                                      keychain:testKeychain
+                                         error:&error];
+    GHAssertFalse(success2, @"Second password creation in duplicate succeeded, "
+                  "but should have failed.");
+    GHAssertTrue([error code] == errSecDuplicateItem, 
+                 @"Expected a different error code but got %d.", [error code]);    
+    GHAssertEqualStrings([error localizedDescription], 
+                         @"That password already exists in the keychain.", 
+                         @"Got an unexpected localized description.");
+}
+
 @end

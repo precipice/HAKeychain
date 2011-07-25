@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		493CAAAD13DD221D00A4E2D0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 493CAAAB13DD221D00A4E2D0 /* Localizable.strings */; };
+		493CAAAE13DD221D00A4E2D0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 493CAAAB13DD221D00A4E2D0 /* Localizable.strings */; };
 		4997ECED13DB51390024637C /* HAKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 4997ECEB13DB51390024637C /* HAKeychain.h */; };
 		4997ECEE13DB513A0024637C /* HAKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4997ECEC13DB51390024637C /* HAKeychain.m */; };
 		4997ECEF13DB513A0024637C /* HAKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4997ECEC13DB51390024637C /* HAKeychain.m */; };
@@ -35,6 +37,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		493CAAAC13DD221D00A4E2D0 /* en */ = {isa = PBXFileReference; explicitFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4997ECEB13DB51390024637C /* HAKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKeychain.h; sourceTree = "<group>"; };
 		4997ECEC13DB51390024637C /* HAKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAKeychain.m; sourceTree = "<group>"; };
 		49F7E08513D9F57F006700CC /* HAKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HAKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +135,7 @@
 			children = (
 				49F7E09013D9F57F006700CC /* HAKeychain-Info.plist */,
 				49F7E09113D9F57F006700CC /* InfoPlist.strings */,
+				493CAAAB13DD221D00A4E2D0 /* Localizable.strings */,
 				49F7E09413D9F57F006700CC /* HAKeychain-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -236,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49F7E09313D9F57F006700CC /* InfoPlist.strings in Resources */,
+				493CAAAD13DD221D00A4E2D0 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49F7E0A613D9F5C1006700CC /* InfoPlist.strings in Resources */,
+				493CAAAE13DD221D00A4E2D0 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +277,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		493CAAAB13DD221D00A4E2D0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				493CAAAC13DD221D00A4E2D0 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		49F7E09113D9F57F006700CC /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -293,6 +307,7 @@
 		49F7E09513D9F57F006700CC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLY_RULES_IN_COPY_FILES = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -305,12 +320,14 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				STRINGS_FILE_OUTPUT_ENCODING = "UTF-16";
 			};
 			name = Debug;
 		};
 		49F7E09613D9F57F006700CC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLY_RULES_IN_COPY_FILES = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -319,6 +336,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				SDKROOT = macosx;
+				STRINGS_FILE_OUTPUT_ENCODING = "UTF-16";
 			};
 			name = Release;
 		};
@@ -370,6 +388,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLY_RULES_IN_COPY_FILES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -382,6 +401,7 @@
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRINGS_FILE_OUTPUT_ENCODING = "UTF-16";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -390,6 +410,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLY_RULES_IN_COPY_FILES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -402,6 +423,7 @@
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRINGS_FILE_OUTPUT_ENCODING = "UTF-16";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
