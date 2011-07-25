@@ -40,6 +40,18 @@ NSString *foundPassword = [HAKeychain findPasswordForService:@"myservice"
                                                        error:&error];
 ```
 
+## Deleting a Password ##
+
+To delete an existing password:
+
+```objective-c
+NSError *error = nil;
+BOOL deleted = [HAKeychain deletePasswordForService:@"myservice"
+                                            account:@"myaccount"
+                                           keychain:NULL
+                                              error:&error];
+```
+
 ## Reporting Errors ##
 
 HAKeychain supports localized descriptions of Keychain-related errors, so

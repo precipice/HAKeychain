@@ -18,6 +18,10 @@
 
 @implementation HAKeychainTest
 
+
+#pragma mark -
+#pragma mark Test keychain lifecycle
+
 - (void)setUpClass {
     const char *pathName = "/tmp/HAKeychain-Test.keychain";
     void *password = "hakeychaintest";
@@ -44,6 +48,9 @@
     GHAssertNoErr(err, @"Failed to delete test keychain");    
 }
 
+
+#pragma mark -
+#pragma mark Password creation tests
 
 - (void)testPasswordCreate {
     NSError *error = nil;
@@ -86,30 +93,6 @@
 }
 
 
-- (void)testIgnoreError {
-    NSString *password = @"noerrpass";
-    NSString *service  = @"noerrservice";
-    NSString *account  = @"noerraccount";
-    
-    // First create should succeed.
-    BOOL success = [HAKeychain createPassword:password
-                                   forService:service
-                                      account:account
-                                     keychain:testKeychain
-                                        error:nil];
-    GHAssertTrue(success, @"First password creation in ignore error failed.");
-    
-    // Second create should fail.
-    BOOL success2 = [HAKeychain createPassword:password
-                                    forService:service
-                                       account:account
-                                      keychain:testKeychain
-                                         error:nil];
-    GHAssertFalse(success2, @"Second password creation in ignore succeeded, "
-                             "but should have failed.");
-}
-
-
 - (void)testNilPassword {
     NSError *error = nil;
     BOOL success = [HAKeychain createPassword:nil
@@ -135,6 +118,33 @@
     GHAssertNotNil(error, @"Should have an error, but there wasn't one.");
     GHAssertTrue([error code] == errSecParam, 
                  @"Expected a different error code but got %d.", [error code]);
+}
+
+
+#pragma mark -
+#pragma mark Error tests
+
+- (void)testIgnoreError {
+    NSString *password = @"noerrpass";
+    NSString *service  = @"noerrservice";
+    NSString *account  = @"noerraccount";
+    
+    // First create should succeed.
+    BOOL success = [HAKeychain createPassword:password
+                                   forService:service
+                                      account:account
+                                     keychain:testKeychain
+                                        error:nil];
+    GHAssertTrue(success, @"First password creation in ignore error failed.");
+    
+    // Second create should fail.
+    BOOL success2 = [HAKeychain createPassword:password
+                                    forService:service
+                                       account:account
+                                      keychain:testKeychain
+                                         error:nil];
+    GHAssertFalse(success2, @"Second password creation in ignore succeeded, "
+                  "but should have failed.");
 }
 
 
@@ -169,7 +179,7 @@
                                       keychain:testKeychain
                                          error:&error];
     GHAssertFalse(success2, @"Second password creation in duplicate succeeded, "
-                  "but should have failed.");
+                             "but should have failed.");
     GHAssertTrue([error code] == errSecDuplicateItem, 
                  @"Expected a different error code but got %d.", [error code]);    
     GHAssertEqualStrings([error localizedDescription], 
@@ -177,6 +187,9 @@
                          @"Got an unexpected localized description.");
 }
 
+
+#pragma mark -
+#pragma mark Password read tests
 
 - (void)testPasswordRead {
     NSString *password = @"readpassword";
@@ -201,6 +214,79 @@
     GHAssertNil(error, @"Find password error should be nil.");
     GHAssertEqualStrings(foundPassword, password, 
                          @"Found password doesn't match saved password.");
+}
+
+
+- (void)testReadWithDifferentAccount {
+    // Sanity check a slight difference in saved passwords.
+    NSString *service  = @"readdiffservice";
+    NSError *error = nil;
+    
+    BOOL created1 = [HAKeychain createPassword:@"readdiffpw1"
+                                    forService:service
+                                       account:@"readdiffacct1"
+                                      keychain:testKeychain
+                                         error:&error];
+    GHAssertTrue(created1, @"Password creation failed.");
+    GHAssertNil(error, @"Should have no error, but there was one.");
+    
+    BOOL created2 = [HAKeychain createPassword:@"readdiffpw2"
+                                    forService:service
+                                       account:@"readdiffacct2"
+                                      keychain:testKeychain
+                                         error:&error];
+    GHAssertTrue(created2, @"Password creation failed.");
+    GHAssertNil(error, @"Should have no error, but there was one.");
+    
+    NSString *foundPassword = [HAKeychain findPasswordForService:service
+                                                         account:@"readdiffacct1"
+                                                        keychain:testKeychain
+                                                           error:&error];
+    
+    GHAssertNotNil(foundPassword, @"Found password should not be nil.");
+    GHAssertNil(error, @"Find password error should be nil.");
+    GHAssertEqualStrings(foundPassword, @"readdiffpw1", 
+                         @"Found password doesn't match saved password.");    
+}
+
+
+#pragma mark -
+#pragma mark Password deletion tests
+
+- (void)testPasswordDelete {
+    NSString *service = @"deleteservice";
+    NSString *account = @"deleteaccount";
+    NSError *error = nil;
+    
+    BOOL created = [HAKeychain createPassword:@"deletepass"
+                                   forService:service
+                                      account:account
+                                     keychain:testKeychain
+                                        error:&error];
+    GHAssertTrue(created, @"Password creation failed.");
+    GHAssertNil(error, @"Should have no error, but there was one.");
+    
+    BOOL deleted = [HAKeychain deletePasswordForService:service
+                                                account:account
+                                               keychain:testKeychain
+                                                  error:&error];
+    GHAssertTrue(deleted, @"Password deletion failed; error = %@",
+                 [error localizedDescription]);
+    GHAssertNil(error, @"Should have no error, but there was one.");
+    
+    NSString *foundPassword = [HAKeychain findPasswordForService:service
+                                                         account:account
+                                                        keychain:testKeychain
+                                                           error:&error];
+    
+    GHAssertNil(foundPassword, @"Found password should be nil.");
+    GHAssertNotNil(error, @"Find password error should be nil.");
+    GHAssertTrue([error code] == errSecItemNotFound, 
+                 @"Got an unexpected error code.");
+    GHAssertEqualStrings([error localizedDescription], 
+                         @"The item could not be found in the keychain.",
+                         @"Got an unexpected error description.");    
+
 }
 
 @end

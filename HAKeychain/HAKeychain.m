@@ -8,9 +8,18 @@
 
 #import "HAKeychain.h"
 
-@interface HAKeychain (PrivateMethods) 
+@interface HAKeychain (PrivateMethods)
+
++ (NSString *)findPasswordForService:(NSString *)service
+                             account:(NSString *)account
+                            keychain:(SecKeychainRef)keychain
+                                item:(SecKeychainItemRef *)item
+                               error:(NSError **)error;
+
 + (BOOL)validService:(NSString *)service account:(NSString *)account;
+
 + (void)setCode:(NSInteger)code error:(NSError **)error;
+
 @end
 
 
@@ -50,6 +59,19 @@
                             keychain:(SecKeychainRef)keychain
                                error:(NSError **)error {
     
+    return [HAKeychain findPasswordForService:service 
+                                      account:account 
+                                     keychain:keychain 
+                                         item:NULL 
+                                        error:error];
+}
+
++ (NSString *)findPasswordForService:(NSString *)service
+                             account:(NSString *)account
+                            keychain:(SecKeychainRef)keychain
+                                item:(SecKeychainItemRef *)item
+                               error:(NSError **)error {
+    
     if (![HAKeychain validService:service account:account]) {
         [HAKeychain setCode:errSecParam error:error];
         return nil;
@@ -67,7 +89,7 @@
                                                      accountUTF8,
                                                      &passwordLength,
                                                      (void **)&passwordData,
-                                                     NULL);
+                                                     item);
 
     if (status != noErr) {
         [HAKeychain setCode:status error:error];
@@ -80,6 +102,33 @@
                                          freeWhenDone:YES] 
                 autorelease];
     }
+}
+
+
++ (BOOL)deletePasswordForService:(NSString *)service
+                         account:(NSString *)account
+                        keychain:(SecKeychainRef)keychain
+                           error:(NSError **)error {
+    
+    SecKeychainItemRef item = nil;
+    NSString *foundPassword = [HAKeychain findPasswordForService:service 
+                                                         account:account 
+                                                        keychain:keychain 
+                                                            item:&item
+                                                           error:error];
+    
+    OSStatus status;
+    
+    if (foundPassword == nil || item == nil) {
+        status = errSecItemNotFound;
+        
+    } else {
+        status = SecKeychainItemDelete(item);
+    }
+
+    if (item != nil) CFRelease(item);
+    if (status != noErr) [HAKeychain setCode:status error:error];
+    return status == noErr;
 }
 
 
