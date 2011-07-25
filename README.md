@@ -9,6 +9,7 @@ This isn't ready to be used yet. The rest of this README is a draft.
 * Easier API for dealing with the OS X Keychain.
 * Works in XCode 4.0.
 * Provides easy, localizable error reporting.
+* Full test suite.
 
 ## Creating a Password ##
 
