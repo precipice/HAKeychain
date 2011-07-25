@@ -80,9 +80,9 @@ Updating a password just runs delete and then create. Here's how:
 
 ```objective-c
 NSError *error = nil;
-BOOL updated = [HAKeychain updatePassword:@"updatepass2"
-                               forService:service
-                                  account:account
+BOOL updated = [HAKeychain updatePassword:@"mynewpassword"
+                               forService:@"myservice"
+                                  account:@"myaccount"
                                  keychain:NULL
                                     error:&error];
 ```
