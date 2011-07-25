@@ -177,4 +177,30 @@
                          @"Got an unexpected localized description.");
 }
 
+
+- (void)testPasswordRead {
+    NSString *password = @"readpassword";
+    NSString *service  = @"readservice";
+    NSString *account  = @"readaccount";
+    NSError *error = nil;
+    
+    BOOL success = [HAKeychain createPassword:password
+                                   forService:service
+                                      account:account
+                                     keychain:testKeychain
+                                        error:&error];
+    GHAssertTrue(success, @"Password creation failed.");
+    GHAssertNil(error, @"Should have no error, but there was one.");
+
+    NSString *foundPassword = [HAKeychain findPasswordForService:service
+                                                         account:account
+                                                        keychain:testKeychain
+                                                           error:&error];
+    
+    GHAssertNotNil(foundPassword, @"Found password should not be nil.");
+    GHAssertNil(error, @"Find password error should be nil.");
+    GHAssertEqualStrings(foundPassword, password, 
+                         @"Found password doesn't match saved password.");
+}
+
 @end

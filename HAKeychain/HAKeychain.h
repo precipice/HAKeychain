@@ -20,4 +20,9 @@
               keychain:(SecKeychainRef)keychain
                  error:(NSError **)error;
 
++ (NSString *)findPasswordForService:(NSString *)service
+                             account:(NSString *)account
+                            keychain:(SecKeychainRef)keychain
+                               error:(NSError **)error;
+
 @end

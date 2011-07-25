@@ -20,11 +20,22 @@ method below instead.) Here's how to create a new password in the default
 keychain:
 
     NSError *error = nil;
-    BOOL success = [HAKeychain createPassword:@"testpass"
-                                   forService:@"testservice"
-                                      account:@"testaccount"
+    BOOL success = [HAKeychain createPassword:@"mypassword"
+                                   forService:@"myservice"
+                                      account:@"myaccount"
                                      keychain:NULL
                                         error:&error];
+
+## Reading a Password ##
+
+Here's how to find a password you've previously saved:
+
+    NSError *error = nil;
+    NSString *foundPassword = [HAKeychain findPasswordForService:@"myservice"
+                                                         account:@"myaccount"
+                                                        keychain:NULL
+                                                           error:&error];
+
 
 ## Reporting Errors ##
 
@@ -47,11 +58,11 @@ though pull requests for other languages are welcome (see
 [Localizable.strings](https://github.com/precipice/HAKeychain/blob/master/HAKeychain/en.lproj/Localizable.strings)
 if you want to contribute).
 
-## Example ##
+## Example Code ##
 
     // Save a new password the user has entered.
     NSError *error = nil;
-    BOOL success = [HAKeychain createPassword:@"newpassword"
+    BOOL success = [HAKeychain createPassword:@"mypassword"
                                    forService:@"myservice"
                                       account:@"myaccount"
                                      keychain:NULL
@@ -63,5 +74,22 @@ if you want to contribute).
     } else {
         // ... success ...
     }
+    
+    // ...
+    
+    // Read in a previously-saved password.
+    NSError *error = nil;
+    NSString *foundPassword = [HAKeychain findPasswordForService:@"myservice"
+                                                         account:@"myaccount"
+                                                        keychain:NULL
+                                                           error:&error];
+    if (foundPassword == nil && error != nil) {
+       NSAlert *alert = [NSAlert alertWithError:error];
+       [alert runModal];
+    } else {
+       // ... success ...
+    }
+
+    
 
 - Marc Hedlund, <marc@precipice.org>

@@ -30,7 +30,6 @@
     const char *passwordUTF8 = [password UTF8String];
     const char *serviceUTF8  = [service UTF8String];
     const char *accountUTF8  = [account UTF8String];
-    SecKeychainItemRef item = nil;
 
     OSStatus status = SecKeychainAddGenericPassword(keychain,
                                                     (UInt32)strlen(serviceUTF8),
@@ -39,14 +38,48 @@
                                                     accountUTF8,
                                                     (UInt32)strlen(passwordUTF8),
                                                     passwordUTF8,
-                                                    &item);
-    if (item) CFRelease(item);
+                                                    NULL);
+    
+    if (status != noErr) [HAKeychain setCode:status error:error];
+    return status == noErr;
+}
+
+
++ (NSString *)findPasswordForService:(NSString *)service
+                             account:(NSString *)account
+                            keychain:(SecKeychainRef)keychain
+                               error:(NSError **)error {
+    
+    if (![HAKeychain validService:service account:account]) {
+        [HAKeychain setCode:errSecParam error:error];
+        return nil;
+    }
+    
+    const char *serviceUTF8  = [service UTF8String];
+    const char *accountUTF8  = [account UTF8String];
+    char *passwordData;
+    UInt32 passwordLength;
+
+    OSStatus status = SecKeychainFindGenericPassword(keychain,
+                                                     (UInt32)strlen(serviceUTF8),
+                                                     serviceUTF8,
+                                                     (UInt32)strlen(accountUTF8),
+                                                     accountUTF8,
+                                                     &passwordLength,
+                                                     (void **)&passwordData,
+                                                     NULL);
 
     if (status != noErr) {
         [HAKeychain setCode:status error:error];
+        return nil;
+        
+    } else {
+        return [[[NSString alloc] initWithBytesNoCopy:passwordData 
+                                               length:passwordLength 
+                                             encoding:NSUTF8StringEncoding 
+                                         freeWhenDone:YES] 
+                autorelease];
     }
-
-    return status == noErr;
 }
 
 
