@@ -19,23 +19,26 @@ account twice; if you want to update an already-saved password, use the update
 method below instead.) Here's how to create a new password in the default
 keychain:
 
-    NSError *error = nil;
-    BOOL success = [HAKeychain createPassword:@"mypassword"
-                                   forService:@"myservice"
-                                      account:@"myaccount"
-                                     keychain:NULL
-                                        error:&error];
+```objective-c
+NSError *error = nil;
+BOOL success = [HAKeychain createPassword:@"mypassword"
+                               forService:@"myservice"
+                                  account:@"myaccount"
+                                 keychain:NULL
+                                    error:&error];
+```
 
 ## Reading a Password ##
 
 Here's how to find a password you've previously saved:
 
-    NSError *error = nil;
-    NSString *foundPassword = [HAKeychain findPasswordForService:@"myservice"
-                                                         account:@"myaccount"
-                                                        keychain:NULL
-                                                           error:&error];
-
+```objective-c
+NSError *error = nil;
+NSString *foundPassword = [HAKeychain findPasswordForService:@"myservice"
+                                                     account:@"myaccount"
+                                                    keychain:NULL
+                                                       error:&error];
+```
 
 ## Reporting Errors ##
 
@@ -47,10 +50,12 @@ modified from the error descriptions provided by Apple (in comments on
 After any call, if an error is reported (if a BOOL return is `NO` or an object
 return is `nil`), you can show a localized error dialog as follows:
 
-    if (success == NO && error != nil) {  // or: result == nil && error != nil
-        NSAlert *alert = [NSAlert alertWithError:error];
-        [alert runModal];
-    }
+```objective-c
+if (success == NO && error != nil) {  // or: result == nil && error != nil
+    NSAlert *alert = [NSAlert alertWithError:error];
+    [alert runModal];
+}
+```
 
 Hopefully the error message is helpful to the user. If not, you can always
 override the message provided.  Localized strings are only provided in English,
@@ -60,36 +65,36 @@ if you want to contribute).
 
 ## Example Code ##
 
-    // Save a new password the user has entered.
-    NSError *error = nil;
-    BOOL success = [HAKeychain createPassword:@"mypassword"
-                                   forService:@"myservice"
-                                      account:@"myaccount"
-                                     keychain:NULL
-                                        error:&error];
-    
-    if (success == NO && error != nil) {
-        NSAlert *alert = [NSAlert alertWithError:error];
-        [alert runModal];
-    } else {
-        // ... success ...
-    }
-    
-    // ...
-    
-    // Read in a previously-saved password.
-    NSError *error = nil;
-    NSString *foundPassword = [HAKeychain findPasswordForService:@"myservice"
-                                                         account:@"myaccount"
-                                                        keychain:NULL
-                                                           error:&error];
-    if (foundPassword == nil && error != nil) {
-       NSAlert *alert = [NSAlert alertWithError:error];
-       [alert runModal];
-    } else {
-       // ... success ...
-    }
+```objective-c
+// Save a new password the user has entered.
+NSError *error = nil;
+BOOL success = [HAKeychain createPassword:@"mypassword"
+                               forService:@"myservice"
+                                  account:@"myaccount"
+                                 keychain:NULL
+                                    error:&error];
 
-    
+if (success == NO && error != nil) {
+    NSAlert *alert = [NSAlert alertWithError:error];
+    [alert runModal];
+} else {
+    // ... success ...
+}
+
+// ...
+
+// Read in a previously-saved password.
+NSError *error = nil;
+NSString *foundPassword = [HAKeychain findPasswordForService:@"myservice"
+                                                     account:@"myaccount"
+                                                    keychain:NULL
+                                                       error:&error];
+if (foundPassword == nil && error != nil) {
+   NSAlert *alert = [NSAlert alertWithError:error];
+   [alert runModal];
+} else {
+   // ... success ...
+}
+``` 
 
 - Marc Hedlund, <marc@precipice.org>
