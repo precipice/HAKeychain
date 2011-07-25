@@ -16,11 +16,12 @@
                account:(NSString *)account
               keychain:(SecKeychainRef)keychain
                  error:(NSError **)error {
+
     const char *passwordUTF8 = [password UTF8String];
     const char *serviceUTF8  = [service UTF8String];
     const char *accountUTF8  = [account UTF8String];
     SecKeychainItemRef item = nil;
-    
+
     OSStatus status = SecKeychainAddGenericPassword(keychain,
                                                     (UInt32)strlen(serviceUTF8),
                                                     serviceUTF8,
@@ -30,6 +31,13 @@
                                                     passwordUTF8,
                                                     &item);
     if (item) CFRelease(item);
+
+    if (status != noErr && error != NULL) {
+        *error = [NSError errorWithDomain:NSCocoaErrorDomain
+                                     code:status
+                                 userInfo:nil];
+    }
+
     return status == noErr;
 }
 
