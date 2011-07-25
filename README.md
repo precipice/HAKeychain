@@ -30,7 +30,7 @@ keychain:
 HAKeychain supports localized descriptions of Keychain-related errors, so
 you can very easily report problems to users. These messages are lightly
 modified from the error descriptions provided by Apple (in comments on 
-<Security/SecBase.h>).
+&lt;Security/SecBase.h&gt;).
 
 After any call, if an error is reported (if a BOOL return is `NO` or an object
 return is `nil`), you can show a localized error dialog as follows:
