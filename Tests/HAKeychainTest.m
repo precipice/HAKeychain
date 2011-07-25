@@ -19,7 +19,6 @@
 @implementation HAKeychainTest
 
 - (void)setUpClass {
-    GHTestLog(@"Creating private keychain for test suite to use.");
     const char *pathName = "/tmp/HAKeychain-Test.keychain";
     void *password = "hakeychaintest";
     
@@ -34,9 +33,14 @@
 
 
 - (void)tearDownClass {
-    GHTestLog(@"Deleting test suite keychain.");
+    // Comment out this line and the GHAssertNoErr below, run the suite, and 
+    // open up '/Applications/Utilities/Keychain Access.app' to see what the 
+    // test cases look like in Keychain (or to debug a test).
     OSStatus err = SecKeychainDelete(testKeychain);
+
+    // Run this even if the above is commented-out.
     CFRelease(testKeychain);
+    
     GHAssertNoErr(err, @"Failed to delete test keychain");    
 }
 
@@ -103,6 +107,40 @@
                                          error:nil];
     GHAssertFalse(success2, @"Second password creation in ignore succeeded, "
                              "but should have failed.");
+}
+
+
+- (void)testNilPassword {
+    NSError *error = nil;
+    BOOL success = [HAKeychain createPassword:nil
+                                   forService:@"nilpassservice"
+                                      account:@"nilpassaccount"
+                                     keychain:testKeychain
+                                        error:&error];
+    GHAssertFalse(success, @"Password creation succeeded but should have failed.");
+    GHAssertNotNil(error, @"Should have an error, but there wasn't one.");
+}
+
+
+- (void)testZeroLengthService {
+    NSError *error = nil;
+    BOOL success = [HAKeychain createPassword:@"zeroservicepass"
+                                   forService:@""
+                                      account:@"zeroserviceaccount"
+                                     keychain:testKeychain
+                                        error:&error];
+    GHAssertFalse(success, @"Password creation succeeded but should have failed.");
+    GHAssertNotNil(error, @"Should have an error, but there wasn't one.");
+}
+
+
+- (void)testNilAccountAndError {
+    BOOL success = [HAKeychain createPassword:@"nilacctpass"
+                                   forService:@"nilacctservice"
+                                      account:nil
+                                     keychain:testKeychain
+                                        error:nil];
+    GHAssertFalse(success, @"Password creation succeeded but should have failed.");
 }
 
 @end
