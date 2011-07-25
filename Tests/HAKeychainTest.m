@@ -119,6 +119,8 @@
                                         error:&error];
     GHAssertFalse(success, @"Password creation succeeded but should have failed.");
     GHAssertNotNil(error, @"Should have an error, but there wasn't one.");
+    GHAssertTrue([error code] == errSecParam, 
+                 @"Expected a different error code but got %d.", [error code]);
 }
 
 
@@ -131,6 +133,8 @@
                                         error:&error];
     GHAssertFalse(success, @"Password creation succeeded but should have failed.");
     GHAssertNotNil(error, @"Should have an error, but there wasn't one.");
+    GHAssertTrue([error code] == errSecParam, 
+                 @"Expected a different error code but got %d.", [error code]);
 }
 
 
@@ -144,7 +148,7 @@
 }
 
 
-- (void)testLocalizedDescriptionOnDuplicate {
+- (void)testLocalizedErrorDescriptionOnDuplicate {
     NSString *password = @"localdescpass";
     NSString *service  = @"localdescservice";
     NSString *account  = @"localdescaccount";
