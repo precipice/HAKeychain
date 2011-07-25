@@ -83,7 +83,7 @@ NSError *error = nil;
 BOOL updated = [HAKeychain updatePassword:@"updatepass2"
                                forService:service
                                   account:account
-                                 keychain:testKeychain
+                                 keychain:NULL
                                     error:&error];
 ```
 
