@@ -25,6 +25,12 @@
                             keychain:(SecKeychainRef)keychain
                                error:(NSError **)error;
 
++ (BOOL)updatePassword:(NSString *)password
+            forService:(NSString *)service
+               account:(NSString *)account
+              keychain:(SecKeychainRef)keychain
+                 error:(NSError **)error;
+
 + (BOOL)deletePasswordForService:(NSString *)service
                          account:(NSString *)account
                         keychain:(SecKeychainRef)keychain

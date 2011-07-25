@@ -105,6 +105,29 @@
 }
 
 
++ (BOOL)updatePassword:(NSString *)password
+            forService:(NSString *)service
+               account:(NSString *)account
+              keychain:(SecKeychainRef)keychain
+                 error:(NSError **)error {
+        
+    BOOL deleted = [HAKeychain deletePasswordForService:service 
+                                                account:account 
+                                               keychain:keychain 
+                                                  error:error];
+    
+    if (deleted == YES) {
+        return [HAKeychain createPassword:password 
+                               forService:service 
+                                  account:account 
+                                 keychain:keychain 
+                                    error:error];
+    }
+    
+    return NO;
+}
+
+
 + (BOOL)deletePasswordForService:(NSString *)service
                          account:(NSString *)account
                         keychain:(SecKeychainRef)keychain

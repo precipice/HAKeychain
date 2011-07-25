@@ -6,10 +6,44 @@ This isn't ready to be used yet. The rest of this README is a draft.
 
 ## Features ##
 
-* Easier API for dealing with the OS X Keychain.
+* Simpler API for dealing with the OS X Keychain.
 * Works in XCode 4.0.
 * Provides easy, localizable error reporting.
 * Full test suite.
+
+## Quick Start ##
+
+```objective-c
+// Save a new password the user has entered.
+NSError *error = nil;
+BOOL success = [HAKeychain createPassword:@"mypassword"
+                               forService:@"myservice"
+                                  account:@"myaccount"
+                                 keychain:NULL
+                                    error:&error];
+
+if (success == NO && error != nil) {
+    NSAlert *alert = [NSAlert alertWithError:error];
+    [alert runModal];
+} else {
+    // ... success ...
+}
+
+// ...
+
+// Read in a previously-saved password.
+NSError *error = nil;
+NSString *foundPassword = [HAKeychain findPasswordForService:@"myservice"
+                                                     account:@"myaccount"
+                                                    keychain:NULL
+                                                       error:&error];
+if (foundPassword == nil && error != nil) {
+   NSAlert *alert = [NSAlert alertWithError:error];
+   [alert runModal];
+} else {
+   // ... success ...
+}
+```
 
 ## Creating a Password ##
 
@@ -38,6 +72,19 @@ NSString *foundPassword = [HAKeychain findPasswordForService:@"myservice"
                                                      account:@"myaccount"
                                                     keychain:NULL
                                                        error:&error];
+```
+
+## Updating a Password ##
+
+Updating a password just runs delete and then create. Here's how:
+
+```objective-c
+NSError *error = nil;
+BOOL updated = [HAKeychain updatePassword:@"updatepass2"
+                               forService:service
+                                  account:account
+                                 keychain:testKeychain
+                                    error:&error];
 ```
 
 ## Deleting a Password ##
@@ -75,38 +122,15 @@ though pull requests for other languages are welcome (see
 [Localizable.strings](https://github.com/precipice/HAKeychain/blob/master/HAKeychain/en.lproj/Localizable.strings)
 if you want to contribute).
 
-## Example Code ##
+## Credits ##
 
-```objective-c
-// Save a new password the user has entered.
-NSError *error = nil;
-BOOL success = [HAKeychain createPassword:@"mypassword"
-                               forService:@"myservice"
-                                  account:@"myaccount"
-                                 keychain:NULL
-                                    error:&error];
+Thanks to the following projects for inspiration and ideas:
 
-if (success == NO && error != nil) {
-    NSAlert *alert = [NSAlert alertWithError:error];
-    [alert runModal];
-} else {
-    // ... success ...
-}
+* [sskeychain](https://github.com/samsoffes/sskeychain)
+* [objectiveyoutube](http://code.google.com/p/objectiveyoutube)
 
-// ...
-
-// Read in a previously-saved password.
-NSError *error = nil;
-NSString *foundPassword = [HAKeychain findPasswordForService:@"myservice"
-                                                     account:@"myaccount"
-                                                    keychain:NULL
-                                                       error:&error];
-if (foundPassword == nil && error != nil) {
-   NSAlert *alert = [NSAlert alertWithError:error];
-   [alert runModal];
-} else {
-   // ... success ...
-}
-``` 
+Thanks also to [ldandersen](https://github.com/ldandersen) for his [iOS
+Keychain 
+work](https://github.com/ldandersen/scifihifi-iphone/tree/master/security).
 
 - Marc Hedlund, <marc@precipice.org>
