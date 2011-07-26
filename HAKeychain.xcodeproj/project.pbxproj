@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		493CAAAD13DD221D00A4E2D0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 493CAAAB13DD221D00A4E2D0 /* Localizable.strings */; };
 		493CAAAE13DD221D00A4E2D0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 493CAAAB13DD221D00A4E2D0 /* Localizable.strings */; };
-		4997ECED13DB51390024637C /* HAKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 4997ECEB13DB51390024637C /* HAKeychain.h */; };
+		4997ECED13DB51390024637C /* HAKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 4997ECEB13DB51390024637C /* HAKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4997ECEE13DB513A0024637C /* HAKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4997ECEC13DB51390024637C /* HAKeychain.m */; };
 		4997ECEF13DB513A0024637C /* HAKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4997ECEC13DB51390024637C /* HAKeychain.m */; };
 		49E6A0DF13DE4229004521EA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FCE21613DA178500B155CD /* Security.framework */; };
@@ -23,6 +23,16 @@
 		49F7E0C113DA07C2006700CC /* HAKeychainTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F7E0C013DA07C2006700CC /* HAKeychainTest.m */; };
 		49FCE21713DA178500B155CD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FCE21613DA178500B155CD /* Security.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		49BA276C13DE56E700C6742B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49F7E07B13D9F57F006700CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49F7E08413D9F57F006700CC;
+			remoteInfo = HAKeychain;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		49F7E0BB13D9F6F8006700CC /* CopyFiles */ = {
@@ -207,6 +217,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				49BA276D13DE56E700C6742B /* PBXTargetDependency */,
 			);
 			name = Tests;
 			productName = Tests;
@@ -277,6 +288,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		49BA276D13DE56E700C6742B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 49F7E08413D9F57F006700CC /* HAKeychain */;
+			targetProxy = 49BA276C13DE56E700C6742B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		493CAAAB13DD221D00A4E2D0 /* Localizable.strings */ = {
@@ -359,6 +378,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HAKeychain/HAKeychain-Prefix.pch";
 				INFOPLIST_FILE = "HAKeychain/HAKeychain-Info.plist";
+				LD_DYLIB_INSTALL_NAME = "@executable_path/../Frameworks/$(EXECUTABLE_PATH)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
@@ -381,6 +401,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HAKeychain/HAKeychain-Prefix.pch";
 				INFOPLIST_FILE = "HAKeychain/HAKeychain-Info.plist";
+				LD_DYLIB_INSTALL_NAME = "@executable_path/../Frameworks/$(EXECUTABLE_PATH)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
