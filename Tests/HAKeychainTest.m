@@ -219,6 +219,21 @@
 }
 
 
+- (void)testUpdateNonexistentPassword {
+    NSError *error = nil;
+    BOOL updated = [HAKeychain updatePassword:@"nonexistantpassword"
+                                   forService:@"nonexistantservice"
+                                      account:@"nonexistantaccount"
+                                     keychain:testKeychain
+                                        error:&error];
+    GHAssertFalse(updated, 
+                  @"Password update succeeded but should have failed.");
+    GHAssertNotNil(error, @"Should have an error, but there wasn't one.");
+    GHAssertTrue([error code] == errSecItemNotFound, 
+                 @"Unexpected error message: code %d", [error code]);
+}
+
+
 #pragma mark -
 #pragma mark Password deletion tests
 
@@ -255,6 +270,19 @@
                          @"The item could not be found in the keychain.",
                          @"Got an unexpected error description.");    
 
+}
+
+- (void)testDeleteNonexistentPassword {
+    NSError *error = nil;
+    BOOL deleted = [HAKeychain deletePasswordForService:@"nonexistantservice"
+                                                account:@"nonexistantaccount"
+                                               keychain:testKeychain
+                                                  error:&error];
+    GHAssertFalse(deleted, 
+                  @"Password deletion succeeded but should have failed.");
+    GHAssertNotNil(error, @"Should have an error, but there wasn't one.");
+    GHAssertTrue([error code] == errSecItemNotFound, 
+                   @"Unexpected error message: code %d", [error code]);
 }
 
 
