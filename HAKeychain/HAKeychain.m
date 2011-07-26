@@ -164,7 +164,7 @@
 }
 
 
-+ (void)setCode:(NSInteger)code error:(NSError **)error {
++ (BOOL)setCode:(NSInteger)code error:(NSError **)error {
     if (error != NULL) {
         NSString *description = nil;
         
@@ -327,7 +327,9 @@
         *error = [NSError errorWithDomain:NSCocoaErrorDomain
                                      code:code
                                  userInfo:userInfo];
-    }    
+    }
+    
+    return YES; // Silence analyze warning.
 }
 
 @end
