@@ -4,10 +4,8 @@
 I went looking for a simpler way to use 
 [Keychain](http://en.wikipedia.org/wiki/Keychain_%28Mac_OS%29) in Mac OS X app
 development, and couldn't find an open source library that worked in XCode 4.
-Several of the projects I found looked unmaintained or untested, and all of 
-them made reporting errors a big pain (as does Keychain itself). HAKeychain
-is my stab at providing the library I'd hoped to find solving these 
-problems.
+Several of the projects I found made reporting errors hard (as Keychain does 
+itself). HAKeychain is my stab at providing the library I'd hoped to find.
 
 (**Note:** this library does not support iOS Keychain, at least not yet. Check out
 [scifihifi-iphone](https://github.com/ldandersen/scifihifi-iphone/tree/master/security)
